@@ -13,7 +13,7 @@ INC_DIRS=-I./ -I./ninjaskit/EmbeddedToolKit/inc -I./ninjaskit
 CFLAGS+=-Wall -Wextra -g -fno-common -mcpu=cortex-m3 -mthumb -mfloat-abi=soft -MD -DSTM32F1 $(INC_DIRS) -fno-common  -DGCC_ARMCM3
 CPPFLAGS = $(CFLAGS) -fno-rtti -fno-exceptions -std=c++14
 LDFLAGS+=--static -lc -lnosys -T ./ninjaskit/STM32F103xB.ld -nostartfiles -Wl,--gc-sections -mcpu=cortex-m3 -mthumb -mfloat-abi=soft -lm -Wl,-Map=$(MAP_NAME) -L./ninjaskit/libopencm3 -lopencm3_stm32f1
-C_SOURCES=$(wildcard ./ninjaskit/*.c)
+C_SOURCES=
 SOURCES=$(wildcard *.cpp) $(wildcard ./ninjaskit/*.cpp) $(wildcard ./ninjaskit/EmbeddedToolKit/src/*.cpp)
 OBJS=$(SOURCES:.cpp=.o) $(C_SOURCES:.c=.o)
 D_FILES=$(SOURCES:.cpp=.d) $(C_SOURCES:.c=.o)
@@ -43,7 +43,6 @@ clean:
 	rm -f $(OBJS) $(D_FILES)
 
 upload:
-	#dfu-util -d leaf:0003 -a 2 -s 0x08002000 -D $(BIN_NAME)
 	stm32flash -w $(BIN_NAME) -v -g 0x0 /dev/ttyUSB0
 
 monitor:

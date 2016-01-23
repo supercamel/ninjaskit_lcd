@@ -5,30 +5,14 @@
 LiquidCrystal lcd({PA, 1}, {PB, 5}, {PA, 3}, {PA, 6}, {PA, 4}, {PA, 2}, {PA, 0});
 
 
-void hard_fault_handler(void)
-{
-	//hang.
-	while(1)
-	{
-		Serial1.println("hard fault");
-		etk::sleep_ms(1000);
-	}
-}
-
-
-
-
 int main(void)
 {
     clock_setup();
-	adc_setup();
-	
-    Serial1.begin(57600);
     
     configure_as_output({PB, 0});
     set_pin({PB, 0}, true);
     
-    etk::sleep_ms(1000);
+    etk::sleep_ms(300);
     
     
 	lcd.begin();
@@ -44,7 +28,7 @@ int main(void)
     {
     	lcd.set_cursor(3, ss.length());
 		lcd.print(etk::now().seconds());
-		etk::sleep_ms(100);
+		etk::sleep_ms(10);
     }
 }
 
