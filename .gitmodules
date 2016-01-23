@@ -1,0 +1,3 @@
+[submodule "ninjaskit"]
+	path = ninjaskit
+	url = https://github.com/supercamel/ninjaskit.git
