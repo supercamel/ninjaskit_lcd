@@ -8,6 +8,7 @@
  ~~~~~
  
  The LCD library uses 4-bit mode and, unlike most Arduino libs, it uses the RW pin to check the busy flag.
+ Checking the busy flag makes transfers a bit faster since no delays are longer than they need to be.
  
  This means 7 digital pins are required and you may choose any suitable digital pin. 
  
