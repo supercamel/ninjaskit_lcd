@@ -1,5 +1,5 @@
 #include "ninjaskit/ninjaskit.h"
-#include "lcd.h"
+#include "lcd/lcd.h"
 
 
 LiquidCrystal lcd({PA, 1}, {PB, 5}, {PA, 3}, {PA, 6}, {PA, 4}, {PA, 2}, {PA, 0});

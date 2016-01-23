@@ -14,7 +14,7 @@ CFLAGS+=-Wall -Wextra -g -fno-common -mcpu=cortex-m3 -mthumb -mfloat-abi=soft -M
 CPPFLAGS = $(CFLAGS) -fno-rtti -fno-exceptions -std=c++14
 LDFLAGS+=--static -lc -lnosys -T ./ninjaskit/STM32F103xB.ld -nostartfiles -Wl,--gc-sections -mcpu=cortex-m3 -mthumb -mfloat-abi=soft -lm -Wl,-Map=$(MAP_NAME) -L./ninjaskit/libopencm3 -lopencm3_stm32f1
 C_SOURCES=
-SOURCES=$(wildcard *.cpp) $(wildcard ./ninjaskit/*.cpp) $(wildcard ./ninjaskit/EmbeddedToolKit/src/*.cpp)
+SOURCES=$(wildcard *.cpp) $(wildcard ./lcd/*.cpp) $(wildcard ./ninjaskit/*.cpp) $(wildcard ./ninjaskit/EmbeddedToolKit/src/*.cpp)
 OBJS=$(SOURCES:.cpp=.o) $(C_SOURCES:.c=.o)
 D_FILES=$(SOURCES:.cpp=.d) $(C_SOURCES:.c=.o)
 
