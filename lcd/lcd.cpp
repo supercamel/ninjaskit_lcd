@@ -172,6 +172,7 @@ void LiquidCrystal::busy_wait()
 
     while(busy)
     {
+    	etk::sleep_us(100);
         set_pin(enable_pin, HIGH);
         etk::sleep_us(1);
         busy = read_pin(data_pins[3]);
